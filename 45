@@ -1,0 +1,19 @@
+class Solution(object):
+    def jump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        left =0
+        right =0
+        count =0
+        
+        while right < len(nums)-1:
+          sum =0 
+          for i in range(left, right+1):
+              sum = max(sum, i+nums[i])
+          left = right +1
+          right = sum
+          count +=1
+        return count
+
